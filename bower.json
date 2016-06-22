@@ -1,0 +1,23 @@
+{
+  "name": "hamDash",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Chris Snyder <chris@keyedupmedia.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/KB1RMA/FD-Dash",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.0.0"
+  }
+}

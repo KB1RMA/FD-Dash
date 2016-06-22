@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+require('laravel-elixir-wiredep');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +14,17 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.wiredep();
+
+    mix.sass([
+        'app.scss'
+    ]);
+
+    mix.scripts([
+        'app.js'
+    ]);
+
+    mix.browserSync({
+        proxy: 'hamdash.app'
+    });
 });
