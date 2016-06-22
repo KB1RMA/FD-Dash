@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Qso;
+use Event;
+use App\Events\NewQso;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // When  a new QSO has been created, let's trigger the event so it'll be
+        //  broadcast via websocket to our frontend UI
+
+        Qso::saved(function ($qso) {
+            Event::fire(new NewQso($qso));
+        });
     }
 
     /**

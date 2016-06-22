@@ -67,13 +67,10 @@ class ReceiveQsos extends Command
 
             try {
                 $contact = Qso::create($qso);
+                $this->info("Contact sucessfully saved with -> $contact->call");
             } catch (\Exception $e) {
                 $this->error('Failed to save contact '. $e->getMessage());
             }
-
-            if ($contact->save())
-                $this->info('Contact sucessfully saved with -> '. $contact->call);
-
 
         } while ($packet !== false);
 

@@ -22,7 +22,7 @@ class CreateQsosTable extends Migration
             $table->string('mode');
             $table->string('call');
             $table->string('exchange1')->nullable();
-            $table->string('section')->nullable();
+            $table->string('section')->nullable()->index();
             $table->dateTime('timestamp');
         });
     }
