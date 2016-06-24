@@ -17,9 +17,10 @@
 
         <!-- bower:js -->
         <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/plotly-latest.min/index.js"></script>
         <!-- endbower -->
 
-        <script src="js/app.js"></script>
+        <script src="js/all.js"></script>
 
     </body>
 </html>

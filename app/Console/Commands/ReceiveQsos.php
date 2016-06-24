@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Carbon\Carbon;
 use App\Qso;
 
 class ReceiveQsos extends Command
@@ -64,10 +65,11 @@ class ReceiveQsos extends Command
             // Quick fix on formatting for the model
             $qso['section'] = !empty($qso['section'][0]) ? $qso['section'][0] : null;
             $qso['exchange1'] = !empty($qso['exchange1'][0]) ? $qso['exchange1'][0] : null;
+            $qso['timestamp'] = Carbon::createFromFormat('Y-m-d H:i:s', $qso['timestamp']);
 
             try {
                 $contact = Qso::create($qso);
-                $this->info("Contact sucessfully saved with -> $contact->call");
+                $this->info("Contact sucessfully saved with -> $contact->call @ $contact->timestamp");
             } catch (\Exception $e) {
                 $this->error('Failed to save contact '. $e->getMessage());
             }

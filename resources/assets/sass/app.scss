@@ -12,3 +12,33 @@ body {
     font-weight: 100;
     font-family: 'Lato';
 }
+
+
+.results-table {
+    @extend .table;
+
+    tr {
+        &.inactive {
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: transform .3s, opacity .3s, background-color .7s;
+            background-color: yellow;
+        }
+        transform: translateY(0);
+        opacity: 1;
+        background-color: transparent;
+        transition: transform .3s, opacity .3s, background-color .7s;
+    }
+
+}
+
+.slide-on-load {
+    transform: translateY(0);
+    max-height: 370px;
+    overflow: scroll;
+
+    &.loading {
+        transform: translateY(37px);
+        transition: transform .3s;
+    }
+}
