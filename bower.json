@@ -19,6 +19,14 @@
   ],
   "dependencies": {
     "jquery": "~3.0.0",
-    "plotly-latest.min": "https://cdn.plot.ly/plotly-latest.min.js"
+    "plotly-latest.min": "https://cdn.plot.ly/plotly-latest.min.js",
+    "socket.io-client": "~1.4.8"
+  },
+  "overrides": {
+      "socket.io-client": {
+          "main": [
+              "./socket.io.js"
+          ]
+      }
   }
 }

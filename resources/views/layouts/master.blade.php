@@ -13,11 +13,10 @@
             @yield('content')
         </div>
 
-        <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
-
         <!-- bower:js -->
         <script src="/bower_components/jquery/dist/jquery.js"></script>
         <script src="/bower_components/plotly-latest.min/index.js"></script>
+        <script src="/bower_components/socket.io-client/socket.io.js"></script>
         <!-- endbower -->
 
         <script src="js/all.js"></script>
