@@ -13,6 +13,6 @@ redis.on('message', function (channel, message) {
     io.emit(channel + ':' + message.event, message.data);
 });
 
-http.listen(3002, function(){
+http.listen(3002, function () {
     console.log('Listening on Port 3002');
 });

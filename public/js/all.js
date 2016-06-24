@@ -3,6 +3,7 @@
 
     var socket = io('http://hamdash.app:3002');
 
+    // Bind to the new Qso event
     socket.on('qso:App\\Events\\NewQso', function (data) {
         var
             $table = $('#last-qso-table'),
@@ -27,6 +28,30 @@
 
           console.log(data);
     });
+
+    // Initialize the graph
+    var
+        chart = new SmoothieChart({
+            millisPerPixel: 100,
+            grid: {
+                fillStyle: 'transparent',
+                sharpLines: true,
+                millisPerLine: 9000,
+                verticalSections: 13,
+                borderVisible:false
+            },
+            labels: {
+                fillStyle:'#000000'
+            }
+        }),
+        canvas = document.getElementById('smoothie-chart'),
+        series = new TimeSeries();
+
+    chart.addTimeSeries(series, {
+        lineWidth: 2,
+        strokeStyle: '#00ff00'
+    });
+    chart.streamTo(canvas, 868);
 
 })(window.jQuery);
 

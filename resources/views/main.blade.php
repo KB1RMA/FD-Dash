@@ -2,6 +2,9 @@
 
 @section('content')
             <div class="content">
+                <canvas id="smoothie-chart" width="712" height="275">
+            </div>
+            <div class="content">
                 <h2 class="title">W1NY</h2>
                 <table class="results-table">
                     <thead>

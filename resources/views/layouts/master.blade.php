@@ -17,6 +17,7 @@
         <script src="/bower_components/jquery/dist/jquery.js"></script>
         <script src="/bower_components/plotly-latest.min/index.js"></script>
         <script src="/bower_components/socket.io-client/socket.io.js"></script>
+        <script src="/bower_components/smoothie/smoothie.js"></script>
         <!-- endbower -->
 
         <script src="js/all.js"></script>
