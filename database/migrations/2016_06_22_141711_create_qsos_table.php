@@ -15,11 +15,11 @@ class CreateQsosTable extends Migration
         Schema::create('qsos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('band');
+            $table->integer('band')->index();
             $table->float('rxfreq');
             $table->float('txfreq');
-            $table->string('operator');
-            $table->string('mode');
+            $table->string('operator')->index();
+            $table->string('mode')->index();
             $table->string('call');
             $table->string('exchange1')->nullable();
             $table->string('section')->nullable()->index();
