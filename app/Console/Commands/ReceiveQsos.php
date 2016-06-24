@@ -63,8 +63,11 @@ class ReceiveQsos extends Command
             $qso = json_decode(json_encode((array) simplexml_load_string($packet)), 1);
 
             // Quick fix on formatting for the model
-            $qso['section'] = !empty($qso['section'][0]) ? $qso['section'][0] : null;
-            $qso['exchange1'] = !empty($qso['exchange1'][0]) ? $qso['exchange1'][0] : null;
+            //
+            // **NOTE:** Don't actually need these
+            ##$qso['section'] = !empty($qso['section'][0]) ? $qso['section'][0] : null;
+            ##$qso['exchange1'] = !empty($qso['exchange1'][0]) ? $qso['exchange1'][0] : null;
+
             $qso['timestamp'] = Carbon::createFromFormat('Y-m-d H:i:s', $qso['timestamp']);
 
             try {

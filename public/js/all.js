@@ -1,7 +1,7 @@
 ;(function ($) {
 
 
-    var socket = io('http://hamdash.app:3002');
+    var socket = io(window.location.origin +':3002');
 
     // Bind to the new Qso event
     socket.on('qso:App\\Events\\NewQso', function (data) {

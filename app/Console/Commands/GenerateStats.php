@@ -8,6 +8,7 @@ use Event;
 use App\Events\UpdateStats;
 use Carbon\Carbon;
 use App\Qso;
+use DB;
 
 class GenerateStats extends Command
 {
@@ -61,6 +62,20 @@ class GenerateStats extends Command
 
             $stats[$band] = $rate;
         }
+
+        // Find top operators
+        $stats['operators'] = Qso::select(DB::raw('operator,COUNT(*) as count'))
+            ->groupBy('operator')
+            ->orderBy('count', 'DESC')
+            ->limit(5)
+            ->get();
+
+        // Find top sections
+        $stats['sections'] = Qso::select(DB::raw('section,COUNT(*) as count'))
+            ->groupBy('section')
+            ->orderBy('count', 'DESC')
+            ->limit(5)
+            ->get();
 
         // Send it off into the world
         Event::fire(new UpdateStats($stats));
