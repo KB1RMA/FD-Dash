@@ -15,20 +15,20 @@ stop() {
 
 trap_with_arg 'stop' EXIT SIGINT SIGTERM SIGHUP
 
-echo 'Starting  --- \n'
-echo ' ------------ \n'
+echo "Starting  --- \n"
+echo " ------------ \n"
 redis-server --port 3001 &
 
-echo 'Starting QSO Listener --- \n'
-echo ' ------------ \n'
+echo "Starting QSO Listener --- \n"
+echo " ------------ \n"
 php artisan qso:receive &
 
-echo 'Starting Socket.IO --- \n'
-echo ' ------------ \n'
+echo "Starting Socket.IO --- \n"
+echo " ------------ \n"
 node socket.js &
 
-echo 'Starting Statistics generator'
-echo ' ------------ \n'
+echo "Starting Statistics generator"
+echo " ------------ \n"
 sh run-stats.sh &
 
 while true; do read; done
